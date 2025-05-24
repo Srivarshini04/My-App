@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
@@ -9,7 +9,7 @@ import {
   BrowserRouter,
   Route,Routes} from "react-router-dom";
 
-let name="Varshini";
+//let name="Varshini";
 function App() {
   //1.basic and default code for react
  /* return (
@@ -58,7 +58,7 @@ function App() {
     })
     setTimeout(() => {
       setAlert(null);
-    }, 1500);
+    }, 1200);
   }
 
 
@@ -68,7 +68,7 @@ function App() {
       //  document.documentElement.setAttribute('data-bs-theme', 'dark');
       document.body.style.backgroundColor='black';
       showAlert("Dark Mode has been Enabled","success");
-      document.title ="MyApp - Dark Mode";
+      //document.title ="TextUtils - Dark Mode";
     
     }
     else{
@@ -76,7 +76,7 @@ function App() {
       //document.documentElement.setAttribute('data-bs-theme', 'light');
       document.body.style.backgroundColor='white';
       showAlert("Light Mode has been Enabled","success");
-      document.title="MyApp - Light Mode";
+      //document.title="textUtils - Light Mode";
 
     }
   }
@@ -85,12 +85,12 @@ function App() {
     <BrowserRouter>
     {/* it will take the default props */}
     {/* <Navbar/> */} 
-   <Navbar title="My-app" aboutText='About Us' mode={mode} toggleMode={toggleMode} />
+   <Navbar title="TextUtils" aboutText='About Us' mode={mode} toggleMode={toggleMode} />
    <Alert alert={alert}/>
    <div className="container my-3">
     <Routes>
-      <Route path="/About" element={<About/>}/>
-      <Route  path="/" element={<TextForm  showAlert={showAlert} heading="Enter The Text Below To Analyze" mode={mode}/>}/>
+      <Route path="/About" element={<About mode={mode} />}/>
+      <Route  path="/" element={<TextForm  showAlert={showAlert} heading="Try TextUtils Word Counter ,Case Conversion and more..." mode={mode}/>}/>
       </Routes>
     {/* This is our react app to analyse the text entered */}
    

@@ -44,6 +44,7 @@ export default function TextForm(props) {
         let text=document.getElementById("MyBox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("Text Copied to Clipboard","success");
     }
     const handleExtraSpaces=()=>{
@@ -51,7 +52,7 @@ export default function TextForm(props) {
         setText(newText.join(" "));
         props.showAlert("Extra Spaces are removed successfully!","success");
     }
-    const counts=()=>{
+    /*const counts=()=>{
             let arr=new Array();
             arr=text.trim();
             let ch=0,words=1,lines=1;
@@ -74,26 +75,26 @@ export default function TextForm(props) {
             charcount:ch,
             wordcount:words
         }
-    }
+    }*/
     const [text,setText]=useState("");
     //text="New Text";//wrong way to change the state
     //setText("New Text")//correct way to change the state
   return (
     <>
     <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
-        <h1>{props.heading}</h1>
+        <h1 className='mb-3'>{props.heading}</h1>
         <div className="mb-3">
         <textarea className="form-control" id="MyBox" value={text} style={{backgroundColor: props.mode==='dark'?'black':'white',color: props.mode==='dark'?'white':'black'}} onChange={handleOnChange} rows="8"></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>Convert to UpperCase</button>
-        <button className="btn btn-primary mx-3" onClick={handleLowClick}>Convert to LowerCase</button>
-        <button className="btn btn-primary mx-3" onClick={handleClearText}>Clear Text</button>
-        <button className="btn btn-primary mx-3" onClick={handleReverse}>Invert</button>
-        <button className="btn btn-primary mx-3" onClick={handleSpeak}>Speak</button>
+        <button disabled={text.length===0} className="btn btn-primary" onClick={handleUpClick}>Convert to UpperCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert to LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearText}>Clear Text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleReverse}>Invert</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleSpeak}>Speak</button>
         {/* <button className="btn btn-primary mx-3" onClick={handleDarkTheme}>Dark</button>
         <button className="btn btn-primary mx-3" onClick={handleLightTheme}>Light</button> */}
-        <button className="btn btn-primary mx-3" onClick={handleCopy}>Copy Text</button>
-        <button className="btn btn-primary mx-3 my-3" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
         
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
@@ -101,10 +102,10 @@ export default function TextForm(props) {
         {/* to read 125 words it takes 1 min so for one word=1/125=0.008min */}
         {/* <p>{counts().wordcount} words,{counts().charcount} characters</p>
         <p>{counts().wordcount*0.008} Minutes required to read it</p> */}
-        <p>{text.split(" ").length-1} words,{text.length-text.split(" ").length+1} Characters</p>
-        <p>{(text.split(" ").length-1)*0.008} Minutes required to read it</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words,{text.length-text.split(" ").length+1} Characters</p>
+        <p>{(text.split(" ").filter((element)=>{return element.length!==0}).length)*0.008} Minutes required to read it</p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter something in the textbox above to preview it"}</p>
+        <p>{text.length>0?text:"Nothing to Preview"}</p>
     </div>
     </>
   );
