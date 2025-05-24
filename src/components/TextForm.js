@@ -41,10 +41,10 @@ export default function TextForm(props) {
 
     }*/
     const handleCopy=()=>{
-        let text=document.getElementById("MyBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection().removeAllRanges();
+         //let text=document.getElementById("MyBox");
+        // text.select();
+        navigator.clipboard.writeText(text);
+       // document.getSelection().removeAllRanges();
         props.showAlert("Text Copied to Clipboard","success");
     }
     const handleExtraSpaces=()=>{
@@ -102,8 +102,8 @@ export default function TextForm(props) {
         {/* to read 125 words it takes 1 min so for one word=1/125=0.008min */}
         {/* <p>{counts().wordcount} words,{counts().charcount} characters</p>
         <p>{counts().wordcount*0.008} Minutes required to read it</p> */}
-        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words,{text.length-text.split(" ").length+1} Characters</p>
-        <p>{(text.split(" ").filter((element)=>{return element.length!==0}).length)*0.008} Minutes required to read it</p>
+        <p>{text.split(/[ ,.?!\n]+/).filter((element)=>{return element.length!==0}).length} words,{text.split(/[ ,.?!\n]+/).filter(Boolean).join('').length} Characters</p>
+        <p>{(text.split(/[ ,.\n]+/).filter((element)=>{return element.length!==0}).length)*0.008} Minutes required to read it</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Nothing to Preview"}</p>
     </div>

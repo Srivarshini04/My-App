@@ -61,8 +61,17 @@ function App() {
     }, 1200);
   }
 
-
+   /*const removeBody=()=>{
+    document.body.classList.remove('bg-light');
+    document.body.classList.remove('bg-dark');
+    document.body.classList.remove('bg-primary');
+    document.body.classList.remove('bg-warning');
+    document.body.classList.remove('bg-success');
+    document.body.classList.remove('bg-danger');
+   }*/
   const toggleMode = ()=>{
+    // removeBody();
+    // document.body.classList.add('bg-'+cls);
     if(mode==='light'){
        setMode('dark');
       //  document.documentElement.setAttribute('data-bs-theme', 'dark');
