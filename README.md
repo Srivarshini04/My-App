@@ -43,7 +43,7 @@ Follow the steps below to set up the project locally:
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/srivarshini04/textutils-react-app.git
-```
+
 
 2. **Navigate into the folder**:
 
