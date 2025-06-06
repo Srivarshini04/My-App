@@ -2,7 +2,7 @@
 
 TextUtils is a feature-rich React-based web application designed for text manipulation and analysis. It allows users to perform multiple text operations such as converting to uppercase/lowercase, speaking text, removing extra spaces, copying content, and estimating reading time — all in a user-friendly interface with Light/Dark mode support.
 
-🚀 **Live Demo**: [https://srivarshini04.github.io](https://srivarshini04.github.io)
+🚀 **Live Demo**: https://srivarshini04.github.io/My-App/
 
 ---
 
