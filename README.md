@@ -50,3 +50,45 @@ Follow the steps below to set up the project locally:
 ```bash
 cd textutils-react-app
 ```
+
+
+3.**Install dependencies**:
+
+```bash
+npm install  react-router-dom
+```
+
+4.**Start the development server**:
+
+```bash
+npm start
+```
+
+Now open http://localhost:3000 in your browser to view the app.
+
+### 🧑‍💻 Usage Guide
+Type or paste your text into the text area.
+
+Use the buttons to apply transformations.
+
+Scroll down to see word/character count, reading time, and preview.
+
+Use the switch in the navbar to toggle dark mode.
+
+Try out the Speak button to hear your text read aloud.
+
+### 🙋‍♀️ Author
+Developed by Srivarshini Komirishetty
+
+Github:https://github.com/Srivarshini04
+
+### ⭐️ Support
+
+If you found this project useful, consider starring ⭐ it on GitHub!
+
+
+
+
+
+
+
